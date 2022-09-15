@@ -1,20 +1,16 @@
-// create base html with button
+const elemAccordionItemHeader = document.getElementById(
+  "accordion-item-header"
+);
+const elemObject = document.getElementById("accordion-item-toggle");
 
-// create modal that fills viewport
+const elemAccordionItemBody = document.getElementById("accordion-item-body");
 
-// trigger modal display on click
-
-// close modal
-const elemModalButton = document.getElementById("open-modal");
-const elemModal = document.getElementById("modal");
-const elemCloseBtn = document.getElementById("close-btn");
-
-elemModalButton.addEventListener("click", () => {
-  elemModal.classList.add("open");
-  elemModal.classList.remove("close");
-});
-
-elemCloseBtn.addEventListener("click", () => {
-  elemModal.classList.add("close");
-  elemModal.classList.remove("open");
+elemAccordionItemHeader.addEventListener("click", () => {
+  if (elemObject.getAttribute("data") === "icons/plus-solid.svg") {
+    elemObject.setAttribute("data", "icons/minus-solid.svg");
+    elemAccordionItemBody.classList.toggle("open");
+  } else {
+    elemObject.setAttribute("data", "icons/plus-solid.svg");
+    elemAccordionItemBody.classList.toggle("open");
+  }
 });
